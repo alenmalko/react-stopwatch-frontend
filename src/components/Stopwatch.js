@@ -16,7 +16,7 @@ const Stopwatch = () => {
   const getSavedStopwatchTimesFromDatabase = async () => {
     try {
       const allStopwatchTimes = await axios.get(
-        "http://localhost:3000/api/stopwatch"
+        "http://localhost:3000/api/time"
       );
       const onlyTimes = allStopwatchTimes.data.map((times) => times.time);
       setSavedTimes(onlyTimes);
@@ -53,7 +53,7 @@ const Stopwatch = () => {
     };
     try {
       await axios.post(
-        "http://localhost:3000/api/stopwatch/saveStopwatchTime",
+        "http://localhost:3000/api/time/saveStopwatchTime",
         savedTime
       );
       getSavedStopwatchTimesFromDatabase();
